@@ -1,32 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Button from './components/Button';
-import useWindowSize from './hooks/useWindowSize';
-import './App.scss';
-
+import Settings from './pages/Settings';
 
 const App: React.FC = () => {
-  const [count, setCount] = useState(0);
-  const windowSize = useWindowSize(); // Use the custom hook to get the window size
-
-  const increment = () => {
-    setCount(count + 1);
-  };
-
   return (
-    <div>
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
       <NavBar />
-      <div className="pt-20 text-center">
-        <h1 className="text-2xl">Home Page</h1>
-        <p className="my-4">Count is {count}</p>
-        <Button label="Increment Count" onClick={increment} />
-        <p className="mt-4 text-gray-500">Window size: {windowSize.width} x {windowSize.height}</p>
-      </div>
-
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </div>
   );

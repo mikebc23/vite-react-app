@@ -1,5 +1,9 @@
 @use "sass:color";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $primary-color: #3490dc;
 $font-stack: 'Helvetica', sans-serif;
 
@@ -37,4 +41,14 @@ button {
   &:hover {
     background-color: color.adjust($primary-color, $lightness: -10%);
   }
+}
+
+/* Apply dark mode styles directly */
+body.dark {
+  background-color: #1a202c; /* Dark mode background */
+  color: #a0aec0; /* Dark mode text color */
+}
+
+body.dark h1 {
+  color: #9f7aea; /* Dark mode color for h1 */
 }

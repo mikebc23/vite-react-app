@@ -1,11 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
+  darkMode: 'class',  // Enable class-based dark mode
   content: [
     './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',  // Ensure all your JS/TS and JSX/TSX files are included
+    './src/**/*.{js,ts,jsx,tsx}',  // Include all source files
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+  mode: 'jit',  // Enable JIT mode for development
+  purge: false,  // Disable purging temporarily
+};
